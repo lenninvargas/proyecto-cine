@@ -1,0 +1,33 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TB_FUNCION")
+public class Funcion {
+	
+	@Id
+	@Column(name = "id_funcion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idFuncion;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_pelicula" , nullable = false)
+	private Pelicula idPelicula;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_sala" , nullable = false)
+	private Sala idSalas;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_horario" , nullable = false)
+	private Horario idHorario;
+	
+}
