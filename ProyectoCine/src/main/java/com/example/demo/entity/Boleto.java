@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,12 +32,12 @@ public class Boleto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idBoleto;
 	
-	@Column(name = "precio", nullable = false, scale=2)
-	private BigDecimal precio;
+	@Column(name = "precio", nullable = false, precision = 10, scale=2)
+	private double precio;
 	
 	@Column(name = "fecha", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fecha;
+	private LocalDateTime fecha;
 	
 	@Column(name = "cliente", nullable = false)
 	private Integer cliente;

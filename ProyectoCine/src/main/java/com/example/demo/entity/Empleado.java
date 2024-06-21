@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -22,7 +24,8 @@ import lombok.ToString;
 public class Empleado {
 
 	@Id
-	@Column(name = "id_empleado", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_empleado", nullable = false)
 	private Integer idEmpleado;
 	
 	@Column(name = "nombre_empleado", nullable = false, length = 50)
@@ -35,7 +38,7 @@ public class Empleado {
 	private String dni;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_tiipo" , nullable = false)
-	private Tipo_Empleado idTipo;
+	@JoinColumn(name = "id_tipo" , nullable = false)
+	private TipoEmpleado idTipo;
 	
 }

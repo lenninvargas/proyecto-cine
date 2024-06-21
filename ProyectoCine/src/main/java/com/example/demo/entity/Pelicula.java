@@ -22,8 +22,8 @@ import lombok.ToString;
 public class Pelicula {
 
 	@Id
-	@Column(name = "id_pelicula")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pelicula")
 	private Integer idPelicula;
 	
 	@Column(name = "nombre_pelicula", nullable = false, length = 40)
