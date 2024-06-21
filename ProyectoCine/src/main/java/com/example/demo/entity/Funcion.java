@@ -24,8 +24,8 @@ import lombok.ToString;
 public class Funcion {
 	
 	@Id
-	@Column(name = "id_funcion")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_funcion")
 	private Integer idFuncion;
 	
 	@ManyToOne
@@ -34,7 +34,7 @@ public class Funcion {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_sala" , nullable = false)
-	private Sala idSalas;
+	private Sala idSala;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_horario" , nullable = false)
