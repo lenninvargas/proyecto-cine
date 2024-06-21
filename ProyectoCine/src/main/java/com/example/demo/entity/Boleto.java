@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -33,7 +34,7 @@ public class Boleto {
 	private Integer idBoleto;
 	
 	@Column(name = "precio", nullable = false, precision = 10, scale=2)
-	private double precio;
+	private BigDecimal precio;
 	
 	@Column(name = "fecha", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
