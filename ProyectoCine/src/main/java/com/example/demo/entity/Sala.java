@@ -13,14 +13,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@Table(name = "TB_SALA")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Table(name = "TB_SALA")
 public class Sala {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_sala")
@@ -28,6 +29,12 @@ public class Sala {
 	
 	@Column(name = "nombre_sala", nullable = false, unique = true,length = 30)
 	private String nomSala;
+	
+
+	public Sala(String nomSala) {
+		this.nomSala= nomSala;
+	}
+
 	
 	
 }

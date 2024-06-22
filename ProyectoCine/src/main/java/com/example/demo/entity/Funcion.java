@@ -1,6 +1,10 @@
 package com.example.demo.entity;
 
+import java.time.LocalTime;
+
 import jakarta.persistence.Column;
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,18 +13,20 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Entity
+@Table(name = "TB_FUNCION")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Table(name = "TB_FUNCION")
 public class Funcion {
 	
 	@Id
@@ -39,5 +45,7 @@ public class Funcion {
 	@ManyToOne
 	@JoinColumn(name = "id_horario" , nullable = false)
 	private Horario idHorario;
+
+
 	
 }

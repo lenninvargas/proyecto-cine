@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import java.time.LocalTime;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +26,7 @@ import lombok.ToString;
 @Table(name = "TB_HORARIO")
 public class Horario {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_horario", nullable = false)
@@ -34,5 +36,8 @@ public class Horario {
 	@Temporal(TemporalType.TIME)
 	private LocalTime hora;
 	
-	
+	public Horario(LocalTime hora) {
+        this.hora = hora;
+    }
+
 }
