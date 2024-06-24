@@ -37,6 +37,12 @@ public class Empleado {
 	@Column (name = "dni", nullable = false ,columnDefinition = "CHAR(8)", length = 8)
 	private String dni;
 	
+	@Column (name = "correo", nullable = false ,unique = true, length = 50)
+	private String correo;
+	
+	@Column (name = "password", nullable = false, length = 50)
+	private String contrasenia;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_tipo" , nullable = false)
 	private TipoEmpleado idTipo;
