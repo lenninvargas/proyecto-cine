@@ -13,14 +13,18 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@Table(name = "TB_SALA")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Table(name = "TB_SALA")
 public class Sala {
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> a28b38f74ad7813d55c00daa75f0e24520d97a04
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_sala")
@@ -28,6 +32,12 @@ public class Sala {
 	
 	@Column(name = "nombre_sala", nullable = false, unique = true,length = 30)
 	private String nomSala;
+	
+
+	public Sala(String nomSala) {
+		this.nomSala= nomSala;
+	}
+
 	
 	
 }

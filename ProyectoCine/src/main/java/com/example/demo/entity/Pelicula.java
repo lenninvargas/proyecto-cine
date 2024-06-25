@@ -21,6 +21,7 @@ import lombok.ToString;
 @Table(name = "TB_PELICULA")
 public class Pelicula {
 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pelicula")
@@ -29,5 +30,9 @@ public class Pelicula {
 	@Column(name = "nombre_pelicula", nullable = false, length = 40)
 	private	String nomPelicula;
 	
+	
+	public Pelicula(String nomPelicula) {
+		this.nomPelicula = nomPelicula;
+	}
 	
 }

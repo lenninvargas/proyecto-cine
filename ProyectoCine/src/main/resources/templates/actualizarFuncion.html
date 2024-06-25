@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Funcion</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Editar Funcion</h2>
+    <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+        <span th:text="${errorMessage}"></span>
+    </div>
+    <form th:action="@{/editar_funcion}" th:object="${funcion}" method="post">
+	<input type="hidden" th:field="*{idFuncion}"/>
+        <div class="form-group">
+                <label for="idPelicula">Pelicula:</label>
+                <select class="form-control" id="idPelicula" th:field="*{idPelicula}">
+    				<option th:each="pelicula : ${listaPeliculas}" th:value="${pelicula.idPelicula}" th:text="${pelicula.nomPelicula}" th:selected="${pelicula.idPelicula} == ${funcion.idPelicula.idPelicula}">Pelicula</option>
+				</select>
+            </div>
+            <div class="form-group">
+                <label for="idSala">Sala:</label>
+                <select class="form-control" id="idSala" th:field="*{idSala}">
+    				<option th:each="sala : ${listaSalas}" th:value="${sala.idSala}" th:text="${sala.nomSala}" th:selected="${sala.idSala} == ${funcion.idSala.idSala}">Sala</option>
+				</select>
+            </div>
+            <div class="form-group">
+                <label for="idHorario">Horario:</label>
+                <select class="form-control" id="idHorario" th:field="*{idHorario}">
+    				<option th:each="horario : ${listaHorarios}" th:value="${horario.idHorario}" th:text="${horario.hora}" th:selected="${horario.idHorario} == ${funcion.idHorario.idHorario}">Horario</option>
+				</select>
+            </div>
+        <a th:href="@{/}" class="btn btn-secondary">Regresar</a>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+</body>
+</html>
