@@ -1,10 +1,6 @@
 package com.example.demo.entity;
 
 import java.time.LocalTime;
-<<<<<<< HEAD
-=======
-
->>>>>>> a28b38f74ad7813d55c00daa75f0e24520d97a04
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

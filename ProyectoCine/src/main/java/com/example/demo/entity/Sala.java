@@ -21,10 +21,6 @@ import lombok.ToString;
 @ToString
 public class Sala {
 	
-<<<<<<< HEAD
-=======
-
->>>>>>> a28b38f74ad7813d55c00daa75f0e24520d97a04
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_sala")

@@ -30,9 +30,7 @@ public class Pelicula {
 	@Column(name = "nombre_pelicula", nullable = false, length = 40)
 	private	String nomPelicula;
 	
-	
-	public Pelicula(String nomPelicula) {
-		this.nomPelicula = nomPelicula;
-	}
+	@Column(name = "url_imagen", nullable = false, length = 100)
+	private	String urlImagen;
 	
 }
