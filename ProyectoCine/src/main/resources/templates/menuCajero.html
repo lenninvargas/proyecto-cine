@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Menú Cajero</title>
     <!-- Estilos de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-		<h2>Home</h2>
-		<a th:href="@{login}" class="btn btn-primary">login</a>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Menú Cajero</h2>
+        <a th:href="@{/logout}" class="btn btn-danger mt-2">Cerrar sesión</a>
+        <div class="text-center">
+            <a href="#" class="btn btn-primary btn-lg">Gestion Boleto</a>
+        </div>
     </div>
 
     <!-- Scripts de Bootstrap y jQuery -->
@@ -19,4 +22,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
