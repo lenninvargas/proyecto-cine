@@ -36,12 +36,9 @@ public class Empleado {
 	
 	@Column (name = "dni", nullable = false ,columnDefinition = "CHAR(8)", length = 8)
 	private String dni;
-	
-<<<<<<< HEAD
-	@Column (name = "correo", nullable = false, length = 50)
-=======
+
 	@Column (name = "correo", nullable = false ,unique = true, length = 50)
->>>>>>> a6e9092fd1a0646cd06909a1eab76b8eb3d4b882
+
 	private String correo;
 	
 	@Column (name = "password", nullable = false, length = 50)
