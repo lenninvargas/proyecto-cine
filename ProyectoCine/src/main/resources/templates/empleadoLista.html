@@ -13,19 +13,22 @@
 
 	<div class="container">
 		<div class="row">
-			<h1>Lista de Empleados</h1>
+			<h1 class="mt-5">Lista de Empleados</h1>
 		</div>
 		<div>
-			<a th:href="@{/registrar_empleado}" class="btn btn-primary">Agregar Empleado</a>
+			<a th:href="@{/registrar_empleado}" class="btn btn-primary">Agregar</a>
 		</div>
-		<table class="table table-striped table-bordered">
+		<table class="table table-striped table-bordered mt-4">
 			<thead class="table-dark">
-				<th>Id</th>
-				<th>Nombre</th>
-				<th>Apellidos</th>
-				<th>Dni</th>
-				<th>Correo</th>
-				<th>Tipo</th>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellidos</th>
+					<th>Dni</th>
+					<th>Correo</th>
+					<th>Tipo</th>
+					<th></th>
+				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="empleado : ${listarEmpleado}">
@@ -35,8 +38,10 @@
 					<td th:text="${empleado.dni}">DNI</td>			
 					<td th:text="${empleado.correo}">Correo</td>
 					<td th:text="${empleado.idTipo.nombTipo}">Tipo</td>
-					<td><a th:href="@{/editar_empleado/{id}(id=${empleado.idEmpleado})}" class="btn btn-primary">Editar Empleado</a>
-					<a th:href="@{/eliminar_empleado/{id}(id=${empleado.idEmpleado})}" class="btn btn-primary">Eliminar Empleado</a></td>
+					<td>
+					<a th:href="@{/editar_empleado/{id}(id=${empleado.idEmpleado})}" class="btn btn-warning">Editar</a> |
+					<a th:href="@{/eliminar_empleado/{id}(id=${empleado.idEmpleado})}" class="btn btn-danger">Eliminar</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

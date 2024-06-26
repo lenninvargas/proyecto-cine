@@ -12,8 +12,8 @@
 <body>
 	<div class="container">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Registrar de Empleados</h1>
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card mt-5">
+            <h1 class="text-center mt-5">Registrar Empleados</h1>
             <div class="card-body">
                 <form th:action="@{/registrar_empleado}" th:object="${empleado}" method="POST">
                     <div class="form-group">
@@ -37,15 +37,14 @@
                         <input type="password" name="contrasenia" th:field="*{contrasenia}" class="form-control" placeholder="Digite su Contraseña" required>
                     </div>
                     <div class="form-group">
-                        <label>Tipo: </label>
-                    <select th:field="*{idTipo}" name="idTipo" class="form-control" required>
-					    <option value="">Selecciona un tipo</option>
-					    <option th:value="1">Cajero</option>
-					    <option th:value="2">Administrador</option>
-					</select>
+                        <label for="tipo">Tipo de Empleado: </label>
+						<select  name="itemId" id="tipo" class="form-control mb-3" th:field="*{idTipo.idTipo}">
+				        	<option value="" disabled selected>Seleccione un Tipo de Empleado</option>
+				        	<option th:each="tipo : ${listarTipo}" th:value="${tipo.idTipo}" th:text="${tipo.nombTipo}"></option>
+				      	</select>
                     </div>
                     <div class="box-footer">
-                        <button class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
             </div>

@@ -31,7 +31,7 @@ public class FuncionController {
 	@Autowired
 	private HorarioRepository repositoryHorario;
 	
-	@GetMapping("/")
+	@GetMapping("/funciones")
 	public String home(Model model) {
 		List<Funcion> listaFuncion = repositoryFuncion.findAll();
 		model.addAttribute("listaFuncion",listaFuncion);
@@ -57,7 +57,7 @@ public class FuncionController {
 	@PostMapping("/registrar_funcion")
 	public String registrarFuncion(@ModelAttribute Funcion funcion, Model model) {
 	    repositoryFuncion.save(funcion);
-		return "redirect:/";
+		return "redirect:/funciones";
 	}
 	
 	@GetMapping("/editar_funcion/{id}")
@@ -79,13 +79,13 @@ public class FuncionController {
 	public String actualizarFuncion(@ModelAttribute Funcion funcion, Model model) {
 		
 		repositoryFuncion.save(funcion);
-	    return "redirect:/";
+	    return "redirect:/funciones";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String eliminarFuncion(@PathVariable("id")Integer id) {
 		repositoryFuncion.deleteById(id);
-		return "redirect:/";
+		return "redirect:/funciones";
 	}
 	
 	
