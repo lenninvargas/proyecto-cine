@@ -31,6 +31,11 @@ public class Pelicula {
 	private	String nomPelicula;
 	
 	@Column(name = "url_imagen", nullable = false, length = 100)
+<<<<<<< HEAD
 	private	String urlImagen;
 	
 }
+=======
+	private	String urlImagen;	
+}
+>>>>>>> 95c7045529288936a6c77bea7d1d0b5ea5210370
