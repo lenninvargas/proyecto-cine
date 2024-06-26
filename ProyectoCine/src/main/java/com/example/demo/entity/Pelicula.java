@@ -32,4 +32,8 @@ public class Pelicula {
 	
 	@Column(name = "url_imagen", nullable = false, length = 100)
 	private	String urlImagen;	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> a6e9092fd1a0646cd06909a1eab76b8eb3d4b882
 }
