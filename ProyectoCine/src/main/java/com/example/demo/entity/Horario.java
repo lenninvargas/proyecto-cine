@@ -31,12 +31,8 @@ public class Horario {
 	@Column(name = "id_horario", nullable = false)
 	private Integer idHorario;
 	
-	@Column(name = "hora", nullable = false)
+	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
 	private LocalTime hora;
-	
-	public Horario(LocalTime hora) {
-        this.hora = hora;
-    }
 
 }

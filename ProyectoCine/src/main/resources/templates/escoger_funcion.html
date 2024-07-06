@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Funciones</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/escoger-funcion.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/menu}">Cine</a>
+        <div class="d-flex">
+            <a class="btn btn-outline-danger ml-2" th:href="@{/logout}" role="button">Cerrar sesión</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4 mb-4" th:each="funcion: ${funciones}">
+            <div class="card" style="width: 18rem;">
+                <img width="100%" height="400px" th:src="${'/pelicula_foto/' + funcion.idPelicula.urlImagen}" class="card-img-top" alt="Movie Image">
+                <div class="card-body">
+                    <form th:action="@{/asientos}" method="get">
+                        <h5 class="card-title" th:text="${funcion.idPelicula.nomPelicula}"></h5>
+                        <p class="card-text">
+                            <span th:text="${funcion.idSala.nomSala}"></span><br>
+                            <span th:text="${funcion.idHorario.hora}"></span>
+                        </p>
+                        <input name="funId" type="hidden" th:value="${funcion.idFuncion}">
+                        <input name="horId" type="hidden" th:value="${funcion.idHorario.idHorario}">
+                        <input name="salId" type="hidden" th:value="${funcion.idSala.idSala}">
+                        <button type="submit" class="btn btn-primary">Seleccionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

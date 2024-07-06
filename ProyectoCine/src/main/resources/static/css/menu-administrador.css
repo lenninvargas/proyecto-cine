@@ -1,0 +1,55 @@
+body {
+            background-color: #343a40; /* dark background */
+            color: #ffffff; /* white text */
+        }
+        .navbar {
+            background-color: #212529; /* different dark color for navbar */
+        }
+        .navbar-brand, .btn {
+            color: #ffffff;
+        }
+        .btn-outline-danger {
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+        .btn-outline-danger:hover {
+            background-color: #ff4d4d;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #495057; /* slightly lighter dark background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .btn-custom1 {
+            background-color: #28a745; /* custom green */
+            color: #ffffff;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-custom1:hover {
+            background-color: #218838;
+            color: #ffffff;
+        }
+        .btn-custom2 {
+            background-color: #dc3545; /* custom red */
+            color: #ffffff;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-custom2:hover {
+            background-color: #c82333;
+            color: #ffffff;
+        }
+        .btn-custom3 {
+            background-color: #007bff; /* custom blue */
+            color: #ffffff;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-custom3:hover {
+            background-color: #0069d9;
+            color: #ffffff;
+        }

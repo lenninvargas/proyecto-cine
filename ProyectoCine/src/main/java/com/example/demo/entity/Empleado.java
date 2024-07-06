@@ -38,7 +38,6 @@ public class Empleado {
 	private String dni;
 
 	@Column (name = "correo", nullable = false ,unique = true, length = 50)
-
 	private String correo;
 	
 	@Column (name = "password", nullable = false, length = 50)

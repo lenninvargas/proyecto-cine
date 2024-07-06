@@ -6,25 +6,27 @@
     <title>Iniciar Sesión</title>
     <!-- Estilos de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form th:action="@{/login}" method="post">
-            <div class="form-group">
-                <label for="correo">Correo Electrónico:</label>
-                <input type="email" id="correo" name="correo" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="contrasenia" name="contrasenia" class="form-control" required>
-            </div>
-           	<a th:href="@{/}" class="btn btn-primary">Regresar</a>
-            <button type="submit" class="btn btn-secondary">Ingresar</button>
-            <div th:if="${loginIncorrecto}" class="alert alert-danger">
-  				<p th:text="${loginIncorrecto}"></p>
-			</div>	
-        </form>
+        <div class="login-container">
+            <h2 class="text-center">Iniciar Sesión</h2>
+            <form th:action="@{/}" method="post" th:object="${empleado}">
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input th:field="*{correo}" type="email" id="correo" name="correo" class="form-control" required placeholder="Introduce tu correo">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input th:field="*{contrasenia}" type="password" id="contrasenia" name="contrasenia" class="form-control" required placeholder="Introduce tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <div th:if="${loginIncorrecto}" class="alert alert-danger mt-3">
+                    <p th:text="${loginIncorrecto}"></p>
+                </div>  
+            </form>
+        </div>
     </div>
 
     <!-- Scripts de Bootstrap y jQuery -->

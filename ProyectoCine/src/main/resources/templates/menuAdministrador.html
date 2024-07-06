@@ -6,20 +6,29 @@
     <title>Menú Administrador</title>
     <!-- Estilos de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="css/menu-administrador.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Menú Administrador</h2>
-        <a th:href="@{/logout}" class="btn btn-danger mt-2">Cerrar sesión</a>
-        <div class="text-center">
-            <a th:href="@{/empleados}" class="btn btn-success btn-lg mr-3">Gestionar Empleados</a>
-            <a th:href="@{/funciones}" class="btn btn-danger btn-lg">Gestionar Funciones</a>
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/menu}">Cine</a>
+        <div class="d-flex">
+            <a class="btn btn-outline-danger ml-2" th:href="@{/logout}" role="button">Cerrar sesión</a>
         </div>
     </div>
+</nav>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Menú Administrador</h2>
+    <div class="text-center">
+        <a th:href="@{/empleados}" class="btn btn-custom1">Gestionar Empleados</a>
+        <a th:href="@{/funciones}" class="btn btn-custom2">Gestionar Funciones</a>
+        <a th:href="@{/registrar_pelicula}" class="btn btn-custom3">Gestionar Películas</a>
+    </div>
+</div>
 
-    <!-- Scripts de Bootstrap y jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Scripts de Bootstrap y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

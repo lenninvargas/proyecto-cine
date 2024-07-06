@@ -19,21 +19,22 @@ public class LoginController {
 	@Autowired
 	private EmpleadoRepository empleadoRepository;
 	
-	@GetMapping("/login")
+	@GetMapping("/")
 	public String showLogin(Model model) {
 		model.addAttribute("empleado",new Empleado());
 		return "login";
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/")
 	public String login(@ModelAttribute Empleado empleado, Model model, HttpSession session) {
 	    Empleado empleadoEncontrado = empleadoRepository
 	            .findByCorreoAndContrasenia(empleado.getCorreo(), empleado.getContrasenia());
+	    
 	    if (empleadoEncontrado != null) {        
 	        session.setAttribute("empleado", empleadoEncontrado.getCorreo());
 	        session.setAttribute("tipoEmpleado", empleadoEncontrado.getIdTipo().getNombTipo());
 	        if (empleadoEncontrado.getIdTipo().getNombTipo().equalsIgnoreCase("cajero")) {
-	            return "redirect:/menuCajero";
+	            return "redirect:/escoger_funcion";
 	        } else if (empleadoEncontrado.getIdTipo().getNombTipo().equalsIgnoreCase("administrador")) {
 	            return "redirect:/menuAdministrador";
 	        } else {
@@ -48,12 +49,17 @@ public class LoginController {
 	    }
 	}
 
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 	@GetMapping("/menuCajero")
 	public String showMenuCajero(Model model, HttpSession session) {
 		String correoString = (String)session.getAttribute("empleado");
 		if(correoString == null) {
-			return "return:/login";
+			return "redirect:/";
 		}
 		model.addAttribute("correo", session.getAttribute("empleado"));
 		return "menuCajero";
@@ -63,15 +69,10 @@ public class LoginController {
 	public String showMenuAdministrador(Model model, HttpSession session) {
 		String correoString = (String)session.getAttribute("empleado");
 		if(correoString == null) {
-			return "return:/login";
+			return "redirect:/";
 		}
 		model.addAttribute("correo", session.getAttribute("empleado"));
 		return "menuAdministrador";
 	}
-	
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:/login";
-	}
+
 }

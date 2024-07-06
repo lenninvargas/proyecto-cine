@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Registrar Empleado</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Registrar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/editar-mantenimiento.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/menu}">Cine</a>
+        <div class="d-flex">
+            <a class="btn btn-outline-danger ml-2" th:href="@{/logout}" role="button">Cerrar sesión</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card mt-5">
             <h1 class="text-center mt-5">Registrar Empleados</h1>
@@ -38,18 +44,23 @@
                     </div>
                     <div class="form-group">
                         <label for="tipo">Tipo de Empleado: </label>
-						<select  name="itemId" id="tipo" class="form-control mb-3" th:field="*{idTipo.idTipo}">
-				        	<option value="" disabled selected>Seleccione un Tipo de Empleado</option>
-				        	<option th:each="tipo : ${listarTipo}" th:value="${tipo.idTipo}" th:text="${tipo.nombTipo}"></option>
-				      	</select>
+                        <select name="itemId" id="tipo" class="form-control mb-3" th:field="*{idTipo.idTipo}">
+                            <option value="" disabled selected>Seleccione un Tipo de Empleado</option>
+                            <option th:each="tipo : ${listarTipo}" th:value="${tipo.idTipo}" th:text="${tipo.nombTipo}"></option>
+                        </select>
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a class="btn btn-secondary" th:href="@{/empleados}">Regresar</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<!-- Scripts de Bootstrap y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

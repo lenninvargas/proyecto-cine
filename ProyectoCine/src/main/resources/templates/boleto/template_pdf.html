@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Boletos</title>
+    <style type="text/css">
+    	body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #000;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+header img {
+	height: 50px;
+}
+
+header .company-info {
+	text-align: right;
+}
+
+.date {
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+table, th, td {
+	border: 1px solid #000;
+}
+
+th, td {
+	padding: 10px;
+	text-align: left;
+}
+
+.subtotal {
+	text-align: right;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.signature {
+	margin-top: 50px;
+	text-align: left;
+}
+
+.signature img {
+	height: 100px;
+}
+
+.footer {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.footer p {
+	margin: 5px 0;
+}
+    </style>
+</head>
+<body>
+<header>
+    <img src="https://campusvirtualperu.com/wp-content/uploads/2023/11/logo_cibertec_fondo_blanco_low.jpg" alt="Company Logo">
+    <div class="company-info">
+        <h2>Cine</h2>
+        <p>Dirección: Av. Cine, 1234</p>
+        <p>Teléfono: (123) 456-7890</p>
+        <p>Email: info@cine.com</p>
+    </div>
+</header>
+
+<div class="date">
+    <p>Fecha de emisión: <span th:text="${#dates.format(new java.util.Date(), 'dd/MM/yyyy HH:mm')}">19/06/2024 12:00</span></p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id Función</th>
+        <th>Sala</th>
+        <th>Película</th>
+        <th>Horario</th>
+        <th>Asientos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="asiento : ${asientos}">
+        <td th:text="${funcion}"></td>
+        <td th:text="${sala}"></td>
+        <td th:text="${pelicula}"></td>
+        <td th:text="${hora}"></td>
+        <td th:text="${asiento}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="subtotal">
+    <p>Total: S/ <span th:text="${precio_total}"></span></p>
+</div>
+
+<div class="footer">
+    <p>¡Gracias por tu preferencia!</p>
+    <p>Visítanos en www.cine.com</p>
+</div>
+</body>
+</html>

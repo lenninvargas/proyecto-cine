@@ -1,0 +1,32 @@
+body {
+	background-color: #343a40; /* dark background */
+	color: #ffffff; /* white text */
+}
+
+.login-container {
+	max-width: 400px;
+	padding: 20px;
+	margin: 0 auto;
+	background-color: #495057; /* slightly lighter dark background */
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-container h2 {
+	margin-bottom: 20px;
+}
+
+.form-control {
+	background-color: #6c757d; /* even lighter dark background for inputs */
+	border: 1px solid #ced4da;
+	color: #ffffff;
+}
+
+.form-control::placeholder {
+	color: #dee2e6;
+}
+
+.btn-primary, .btn-secondary {
+	width: 100%;
+	margin-top: 10px;
+}

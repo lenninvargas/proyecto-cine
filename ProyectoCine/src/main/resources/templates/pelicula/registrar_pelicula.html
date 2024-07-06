@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<link href="css/editar-mantenimiento.css" rel="stylesheet" type="text/css">
+    <title>Registrar película</title>
+    
+</head>
+<body>
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/menu}">Cine</a>
+        <div class="d-flex">
+            <a class="btn btn-outline-danger ml-2" th:href="@{/logout}" role="button">Cerrar sesión</a>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div th:if="${registroCorrecto}" class="alert alert-success mt-4" role="alert">
+            <span th:text="${registroCorrecto}"></span>
+        </div>
+        <h3 class="mt-3">Registrar Película</h3>
+        <form th:action="@{/registrar_pelicula}" method="post" th:object="${pelicula}" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Nombre</label>
+                    <input th:field="*{nomPelicula}" type="text" class="form-control" id="validationCustom01" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Foto Película</label>
+                <input name="foto" accept="image/*" required type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <div class="box-footer d-flex">
+                <a class="btn btn-secondary gap-2" th:href="@{/menuAdministrador}">Regresar</a>
+                <button class="btn btn-primary gap-2" type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

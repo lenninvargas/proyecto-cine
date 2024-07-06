@@ -17,6 +17,8 @@ import com.example.demo.entity.TipoEmpleado;
 import com.example.demo.repository.EmpleadoRepository;
 import com.example.demo.repository.TypeEmpleadoRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class EmpleadoController {
 	
@@ -28,7 +30,10 @@ public class EmpleadoController {
 	
 	
 	@GetMapping("/empleados")
-	public String home(Model model) {
+	public String home(Model model, HttpSession session) {
+		if(session.getAttribute("empleado") == null) {
+			return "redirect:/";
+		}
 		List<Empleado> listarEmpleados = empleadoRepository.findAll();
 		model.addAttribute("listarEmpleado", listarEmpleados);
 		
@@ -37,7 +42,10 @@ public class EmpleadoController {
 	
 	
 	@GetMapping("/registrar_empleado")
-	public String showRegistrarEmpleado(Model model) {
+	public String showRegistrarEmpleado(Model model, HttpSession session) {
+		if(session.getAttribute("empleado") == null) {
+			return "redirect:/";
+		}
 		List<TipoEmpleado> listarTipo = typeRepository.findAll();
 		model.addAttribute("empleado", new Empleado());
 		model.addAttribute("listarTipo", listarTipo);
@@ -48,7 +56,10 @@ public class EmpleadoController {
 	
 	
 	@PostMapping("/registrar_empleado")
-	public String registrarEmpleado(@ModelAttribute Empleado empleado, Model model) {
+	public String registrarEmpleado(@ModelAttribute Empleado empleado, Model model, HttpSession session) {
+		if(session.getAttribute("empleado") == null) {
+			return "redirect:/";
+		}
 		empleadoRepository.save(empleado);
 		
 		return  "redirect:/empleados";
@@ -57,7 +68,10 @@ public class EmpleadoController {
 	
 
 	@GetMapping("/editar_empleado/{id}")
-	public String showeditarEmpleado(Model model, @PathVariable("id") Integer id) {
+	public String showeditarEmpleado(Model model, @PathVariable("id") Integer id, HttpSession session) {
+		if(session.getAttribute("empleado") == null) {
+			return "redirect:/";
+		}
 		Empleado encontrarEmpleado = empleadoRepository.findById(id).get();
 		List<TipoEmpleado> listarTipo = typeRepository.findAll();
 		model.addAttribute("listarTipo", listarTipo);
@@ -69,8 +83,10 @@ public class EmpleadoController {
 		
 
 	@GetMapping("/eliminar_empleado/{id}")
-	public String eliminarEmpleado(@PathVariable("id") Integer id) {
-		
+	public String eliminarEmpleado(@PathVariable("id") Integer id, HttpSession session) {
+		if(session.getAttribute("empleado") == null) {
+			return "redirect:/";
+		}
 		empleadoRepository.deleteById(id);
 		
 		return "redirect:/empleados";

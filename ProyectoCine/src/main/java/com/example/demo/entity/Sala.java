@@ -29,11 +29,4 @@ public class Sala {
 	@Column(name = "nombre_sala", nullable = false, unique = true,length = 30)
 	private String nomSala;
 	
-
-	public Sala(String nomSala) {
-		this.nomSala= nomSala;
-	}
-
-	
-	
 }
